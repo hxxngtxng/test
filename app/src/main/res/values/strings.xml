@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MFPC</string>
+    <string-array name="Mode_Items">
+        <item>Infuse</item>
+        <item>Draw</item>
+    </string-array>
+
+    <string name="Volume_Hint">
+        <item>μL</item>
+    </string>
+
+    <string name="Mcf">
+        <item>MICROFLUID</item>
+    </string>
+
+    <string name="Pump">
+        <item>PUMP</item>
+    </string>
+
+    <string name="Controller">
+        <item>CONTROLLER</item>
+    </string>
+
+    <string name="pump1">
+        <item>PUMP 1</item>
+    </string>
+
+    <string name="pump2">
+        <item>PUMP 2</item>
+    </string>
+
+    <string name="pump3">
+        <item>PUMP 3</item>
+    </string>
+
+</resources>

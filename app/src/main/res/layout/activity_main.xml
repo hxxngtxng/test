@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <WebView
+        android:id="@+id/WebView"
+        android:layout_width="410dp"
+        android:layout_height="220dp"
+        tools:layout_editor_absoluteY="76dp"
+        app:layout_constraintTop_toBottomOf="@id/Heading"
+        app:layout_constraintBottom_toTopOf="@id/Data_Input_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--<VideoView
+        android:id="@+id/StreamView"
+        android:layout_width="411dp"
+        android:layout_height="220dp"
+        app:layout_constraintBottom_toTopOf="@id/Data_Input_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Heading" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Heading"
+        android:layout_width="378dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/WebView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="253dp"
+            android:layout_height="67dp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/uet_whiteremove"
+                android:contentDescription="logo"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="185dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/Mcf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/evogria_italic"
+                        android:gravity="bottom"
+                        android:letterSpacing="0.05"
+                        android:text="@string/Mcf"
+                        android:textColor="#015198"
+                        android:textScaleX="1.3"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/Pump"
+                        android:layout_width="78dp"
+                        android:layout_height="33dp"
+                        android:fontFamily="@font/evogria_italic"
+                        android:gravity="bottom|left"
+                        android:letterSpacing="0.05"
+                        android:text="@string/Pump"
+                        android:textColor="#015198"
+                        android:textScaleX="1.3"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/Controller"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:fontFamily="@font/evogria_italic"
+                    android:gravity="bottom|start"
+                    android:letterSpacing="0.05"
+                    android:text="@string/Controller"
+                    android:textColor="#015198"
+                    android:textScaleX="1.3"
+                    android:textSize="14sp" />
+
+                <!--<CheckBox
+                    android:id="@+id/checkBox_notify"
+                    android:layout_width="105dp"
+                    android:layout_height="21dp"
+                    android:layout_gravity="end"
+                    android:layout_weight="2"
+                    android:clickable="false"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"
+                    android:text="CheckBox"
+                    android:textSize="14sp" />-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/Data_Input_1"
+        android:layout_width="354dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/Data_Input_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/WebView">
+
+        <TextView
+            android:id="@+id/pump1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_bolditalic"
+            android:gravity="clip_horizontal|start|top"
+            android:letterSpacing="0.09"
+            android:text="@string/pump1"
+            android:textColor="#015198" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/Mode1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient_mode"
+                    android:backgroundTintMode="multiply"
+                    android:dropDownWidth="@android:dimen/thumbnail_width"
+                    android:entries="@array/Mode_Items"></Spinner>
+
+                <LinearLayout
+                    android:id="@+id/mode_bot_space1"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"></LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Input_Volume1"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/Volume_Hint"
+                android:inputType="number"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <Button
+                android:id="@+id/Decrease1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/sub"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/progressNum1"
+                android:layout_width="86dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0 μL/min"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/Increase1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/add" />
+            <!--android:onClick="increaseInteger"-->
+            <!--android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTintMode="add"-->
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Start_Stop1"
+            android:layout_width="217dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/Start1"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/Stop1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Stop1"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/pause"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Start1"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Data_Input_2"
+        android:layout_width="354dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/Data_Input_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Data_Input_1">
+
+        <TextView
+            android:id="@+id/pump2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_bolditalic"
+            android:gravity="clip_horizontal|start|top"
+            android:letterSpacing="0.09"
+            android:text="@string/pump2"
+            android:textColor="#7e1818" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/Mode2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient_mode"
+                    android:backgroundTintMode="multiply"
+                    android:dropDownWidth="@android:dimen/thumbnail_width"
+                    android:entries="@array/Mode_Items"></Spinner>
+
+                <LinearLayout
+                    android:id="@+id/mode_bot_space2"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"></LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Input_Volume2"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/Volume_Hint"
+                android:inputType="number"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <Button
+                android:id="@+id/Decrease2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/sub"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/progressNum2"
+                android:layout_width="86dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0 μL/min"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/Increase2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/add" />
+            <!--android:onClick="increaseInteger"-->
+            <!--android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTintMode="add"-->
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Start_Stop"
+            android:layout_width="217dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/Start2"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/Stop2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Stop2"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/pause"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Start2"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Data_Input_3"
+        android:layout_width="354dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Data_Input_2"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/pump3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto_bolditalic"
+            android:gravity="clip_horizontal|start|top"
+            android:letterSpacing="0.09"
+            android:text="@string/pump3"
+            android:textColor="#187e27" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="104dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/Mode3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/gradient_mode"
+                    android:backgroundTintMode="multiply"
+                    android:dropDownWidth="@android:dimen/thumbnail_width"
+                    android:entries="@array/Mode_Items"></Spinner>
+
+                <LinearLayout
+                    android:id="@+id/mode_bot_space3"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"></LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Input_Volume3"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/Volume_Hint"
+                android:inputType="number"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <Button
+                android:id="@+id/Decrease3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/sub"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/progressNum3"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="0 μL/min"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/Increase3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/add" />
+            <!--android:onClick="increaseInteger"-->
+            <!--android:backgroundTint="@android:color/holo_blue_light"
+            android:backgroundTintMode="add"-->
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Start_Stop3"
+            android:layout_width="217dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/Start3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="24dp"
+                android:background="@drawable/play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/Stop3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/Stop3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/pause"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/Start3"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
