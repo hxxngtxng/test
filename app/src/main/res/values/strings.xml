@@ -5,6 +5,10 @@
         <item>Draw</item>
     </string-array>
 
+    <string name="ip_hint">
+        <item>IP Address</item>
+    </string>
+
     <string name="Volume_Hint">
         <item>μL</item>
     </string>

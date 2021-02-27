@@ -10,11 +10,35 @@
         android:id="@+id/WebView"
         android:layout_width="410dp"
         android:layout_height="220dp"
-        tools:layout_editor_absoluteY="76dp"
-        app:layout_constraintTop_toBottomOf="@id/Heading"
         app:layout_constraintBottom_toTopOf="@id/Data_Input_1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/Heading">
+
+    </WebView>
+
+    <Button
+        android:id="@+id/Connect"
+        android:layout_width="38dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toTopOf="@id/WebView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.90999997" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_IP_addr"
+        android:layout_width="143dp"
+        android:layout_height="37dp"
+        android:gravity="top"
+        android:hint="@string/ip_hint"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/WebView"
+        app:layout_constraintEnd_toStartOf="@id/Connect"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <!--<VideoView
         android:id="@+id/StreamView"

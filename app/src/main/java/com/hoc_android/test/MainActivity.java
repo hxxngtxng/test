@@ -26,6 +26,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,20 +35,23 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    Button btnIncrease1, btnIncrease2, btnIncrease3, btnDecrease1, btnDecrease2, btnDecrease3, btnStart1, btnStart2, btnStart3, btnStop1, btnStop2, btnStop3;
+    Button btnIncrease1, btnIncrease2, btnIncrease3,
+            btnDecrease1, btnDecrease2, btnDecrease3,
+            btnStart1, btnStart2, btnStart3,
+            btnStop1, btnStop2, btnStop3,
+            btnConnect;
     TextView progressNum1, progressNum2, progressNum3;
     Spinner setMode1, setMode2, setMode3;
-    TextInputEditText volInput1, volInput2, volInput3;
+    TextInputEditText volInput1, volInput2, volInput3, ip_addr;
     WebView webView;
     ProgressDialog pd;
-    String url = "http://192.168.100.6:8000/index.html";
     int setRate1, setRate2, setRate3 = 0;
     private Handler repeatUpdateHandler1 = new Handler();
     private Handler repeatUpdateHandler2 = new Handler();
     private Handler repeatUpdateHandler3 = new Handler();
     private boolean mAutoIncrement1, mAutoIncrement2, mAutoIncrement3 = false;
     private boolean mAutoDecrement1, mAutoDecrement2, mAutoDecrement3 = false;
-    public static int REP_DELAY = 20;
+    public static int REP_DELAY = 60;
 
 
 
@@ -101,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnDecrease1 = (Button) findViewById(R.id.Decrease1);
         btnDecrease2 = (Button) findViewById(R.id.Decrease2);
         btnDecrease3 = (Button) findViewById(R.id.Decrease3);
+        btnConnect = (Button) findViewById(R.id.Connect);
         progressNum1 = findViewById(R.id.progressNum1);
         progressNum2 = findViewById(R.id.progressNum2);
         progressNum3 = findViewById(R.id.progressNum3);
@@ -113,11 +118,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         volInput1 = (TextInputEditText) findViewById(R.id.Input_Volume1);
         volInput2 = (TextInputEditText) findViewById(R.id.Input_Volume2);
         volInput3 = (TextInputEditText) findViewById(R.id.Input_Volume3);
+        ip_addr = (TextInputEditText) findViewById(R.id.input_IP_addr);
         webView = (WebView) findViewById(R.id.WebView);
-
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(url);
+        btnConnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = ("http://" + ip_addr.getEditableText().toString() + "/index.html");
+                webView.loadUrl(url);
+            }
+        });
+        /*webView.loadUrl(url);*/
 
 
         //DROP-DOWN MENU FOR MODE
