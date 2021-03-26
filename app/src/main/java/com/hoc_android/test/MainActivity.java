@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             btnConnect;
     TextView progressNum1, progressNum2, progressNum3;
     Spinner setMode1, setMode2, setMode3;
-    TextInputEditText volInput1, volInput2, volInput3, ip_addr;
+    TextInputEditText volInput1, volInput2, volInput3, ip_addr, syr_vol1, syr_vol2, syr_vol3;
     WebView webView;
-    ProgressDialog pd;
+    String mode2Int_1, mode2Int_2, mode2Int_3;
     int setRate1, setRate2, setRate3 = 0;
     private Handler repeatUpdateHandler1 = new Handler();
     private Handler repeatUpdateHandler2 = new Handler();
@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private boolean mAutoIncrement1, mAutoIncrement2, mAutoIncrement3 = false;
     private boolean mAutoDecrement1, mAutoDecrement2, mAutoDecrement3 = false;
     public static int REP_DELAY = 60;
-
 
 
     class RptUpdater1 implements Runnable            //This little guy handles the auto part of the auto incrementing feature.
@@ -119,6 +118,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         volInput2 = (TextInputEditText) findViewById(R.id.Input_Volume2);
         volInput3 = (TextInputEditText) findViewById(R.id.Input_Volume3);
         ip_addr = (TextInputEditText) findViewById(R.id.input_IP_addr);
+        syr_vol1 = (TextInputEditText) findViewById(R.id.syringe_volume1);
+        syr_vol2 = (TextInputEditText) findViewById(R.id.syringe_volume2);
+        syr_vol3 = (TextInputEditText) findViewById(R.id.syringe_volume3);
         webView = (WebView) findViewById(R.id.WebView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
@@ -141,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Mode2.setOnItemSelectedListener(this);
         Mode3.setAdapter(adapter);
         Mode3.setOnItemSelectedListener(this);
-
 
         //INCREMENT / DECREMENT SECTION
         // Increment once for a click
@@ -355,6 +356,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (getCurrentFocus() != null) {
@@ -376,38 +378,58 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void updatePump1() {
+        switch(setMode1.getSelectedItem().toString()){
+            case "Infuse only": mode2Int_1 = "1"; break;
+            case "Withdraw only": mode2Int_1 = "2"; break;
+            case "Infuse - Withdraw": mode2Int_1 = "3"; break;
+            case "Withdraw - Infuse": mode2Int_1 = "4"; break;
+        }
         // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        Map<String, Object> newMap = new HashMap<>();
+        /*Map<String, Object> newMap = new HashMap<>();
         newMap.put("rate", setRate1);
         newMap.put("volume", Integer.parseInt(volInput1.getText().toString()));
-        newMap.put("mode", setMode1.getSelectedItem().toString());
-        DatabaseReference myRef1 = database.getReference("pump1");
-        myRef1.setValue(newMap);
+        newMap.put("mode", setMode1.getSelectedItem().toString());*/
+        DatabaseReference myRef1 = database.getReference("Pump1");
+        myRef1.setValue(mode2Int_1 + "_" + Integer.parseInt(syr_vol1.getText().toString()) + "_" + Integer.parseInt(volInput1.getText().toString()) + "_" + setRate1);
     }
 
     public void updatePump2() {
+        switch(setMode2.getSelectedItem().toString()){
+            case "Infuse only": mode2Int_2 = "1"; break;
+            case "Withdraw only": mode2Int_2 = "2"; break;
+            case "Infuse - Withdraw": mode2Int_2 = "3"; break;
+            case "Withdraw - Infuse": mode2Int_2 = "4"; break;
+        }
         // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        Map<String, Object> newMap = new HashMap<>();
+       /* Map<String, Object> newMap = new HashMap<>();
         newMap.put("rate", setRate2);
         newMap.put("volume", Integer.parseInt(volInput2.getText().toString()));
-        newMap.put("mode", setMode2.getSelectedItem().toString());
-        DatabaseReference myRef2 = database.getReference("pump2");
-        myRef2.setValue(newMap);
+        newMap.put("mode", setMode2.getSelectedItem().toString());*/
+        DatabaseReference myRef2 = database.getReference("Pump2");
+        myRef2.setValue(mode2Int_2 + "_" + Integer.parseInt(syr_vol2.getText().toString()) + "_" + Integer.parseInt(volInput2.getText().toString()) + "_" + setRate2);
     }
 
     public void updatePump3() {
+        switch(setMode3.getSelectedItem().toString()){
+            case "Infuse only": mode2Int_3 = "1"; break;
+            case "Withdraw only": mode2Int_3 = "2"; break;
+            case "Infuse - Withdraw": mode2Int_3 = "3"; break;
+            case "Withdraw - Infuse": mode2Int_3 = "4"; break;
+        }
         // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        Map<String, Object> newMap = new HashMap<>();
-        newMap.put("rate", setRate3);
-        newMap.put("volume", Integer.parseInt(volInput3.getText().toString()));
-        newMap.put("mode", setMode3.getSelectedItem().toString());
-        DatabaseReference myRef1 = database.getReference("pump3");
-        myRef1.setValue(newMap);
+//        Map<String, Object> newMap = new HashMap<>();
+//        newMap.put("_", setRate3);
+//        newMap.put("_", Integer.parseInt(volInput3.getText().toString()));
+//        newMap.put("_", setMode3.getSelectedItem().toString());
+        DatabaseReference myRef3 = database.getReference("Pump3");
+        myRef3.setValue(mode2Int_3 + "_" + Integer.parseInt(syr_vol3.getText().toString()) + "_" + Integer.parseInt(volInput3.getText().toString()) + "_" + setRate3);
+//        myRef3.setValue("Target Volume" + Integer.parseInt(volInput3.getText().toString()));
+//        myRef3.setValue("Rate" + setRate3);
     }
 }

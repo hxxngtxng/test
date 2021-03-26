@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">MFPC</string>
     <string-array name="Mode_Items">
-        <item>Infuse</item>
-        <item>Draw</item>
+        <item>Infuse only</item>
+        <item>Withdraw only</item>
+        <item>Infuse - Withdraw</item>
+        <item>Withdraw - Infuse</item>
     </string-array>
 
     <string name="ip_hint">
@@ -35,6 +37,10 @@
 
     <string name="pump3">
         <item>PUMP 3</item>
+    </string>
+
+    <string name="specInput">
+        <item>Please enter the syringe\'s volume</item>
     </string>
 
 </resources>
