@@ -39,8 +39,4 @@
         <item>PUMP 3</item>
     </string>
 
-    <string name="specInput">
-        <item>Please enter the syringe\'s volume</item>
-    </string>
-
 </resources>

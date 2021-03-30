@@ -281,13 +281,13 @@
         android:layout_height="41dp"
         android:hint="ml"
         android:inputType="number"
-        android:textSize="14sp"
+        android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="@id/Data_Input_1"
         app:layout_constraintEnd_toEndOf="@id/Data_Input_1"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/Data_Input_1"
         app:layout_constraintTop_toTopOf="@id/Data_Input_1"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.90" />
 
     <LinearLayout
         android:id="@+id/Data_Input_2"
@@ -421,13 +421,13 @@
         android:layout_height="41dp"
         android:hint="ml"
         android:inputType="number"
-        android:textSize="14sp"
+        android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="@id/Data_Input_2"
         app:layout_constraintEnd_toEndOf="@id/Data_Input_2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/Data_Input_2"
         app:layout_constraintTop_toTopOf="@id/Data_Input_2"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.90" />
 
 
     <LinearLayout
@@ -554,7 +554,6 @@
                 app:layout_constraintStart_toEndOf="@+id/Start3"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputEditText
@@ -563,14 +562,12 @@
         android:layout_height="41dp"
         android:hint="ml"
         android:inputType="number"
-        android:textSize="14sp"
+        android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="@id/Data_Input_3"
         app:layout_constraintEnd_toEndOf="@id/Data_Input_3"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/Data_Input_3"
         app:layout_constraintTop_toTopOf="@id/Data_Input_3"
-        app:layout_constraintVertical_bias="0.97" />
-
+        app:layout_constraintVertical_bias="0.90" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
