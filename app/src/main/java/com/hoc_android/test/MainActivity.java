@@ -392,7 +392,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         newMap.put("volume", Integer.parseInt(volInput1.getText().toString()));
         newMap.put("mode", setMode1.getSelectedItem().toString());*/
         DatabaseReference myRef1 = database.getReference("Pump1");
-        myRef1.setValue(mode2Int_1 + "_" + Integer.parseInt(syr_vol1.getText().toString()) + ":" + Integer.parseInt(volInput1.getText().toString()) + "_" + setRate1);
+        myRef1.setValue("1" + ":" + mode2Int_1 + "_" + Integer.parseInt(syr_vol1.getText().toString()) + ":" + Integer.parseInt(volInput1.getText().toString()) + "_" + setRate1);
     }
 
     public void updatePump2() {
@@ -410,7 +410,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         newMap.put("volume", Integer.parseInt(volInput2.getText().toString()));
         newMap.put("mode", setMode2.getSelectedItem().toString());*/
         DatabaseReference myRef2 = database.getReference("Pump2");
-        myRef2.setValue(mode2Int_2 + "_" + Integer.parseInt(syr_vol2.getText().toString()) + ":" + Integer.parseInt(volInput2.getText().toString()) + "_" + setRate2);
+        myRef2.setValue("2" + ":" + mode2Int_2 + "_" + Integer.parseInt(syr_vol2.getText().toString()) + ":" + Integer.parseInt(volInput2.getText().toString()) + "_" + setRate2);
     }
 
     public void updatePump3() {
@@ -428,7 +428,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        newMap.put("_", Integer.parseInt(volInput3.getText().toString()));
 //        newMap.put("_", setMode3.getSelectedItem().toString());
         DatabaseReference myRef3 = database.getReference("Pump3");
-        myRef3.setValue(mode2Int_3 + "_" + Integer.parseInt(syr_vol3.getText().toString()) + ":" + Integer.parseInt(volInput3.getText().toString()) + "_" + setRate3);
+        myRef3.setValue("3" + ":" + mode2Int_3 + "_" + Integer.parseInt(syr_vol3.getText().toString()) + ":" + Integer.parseInt(volInput3.getText().toString()) + "_" + setRate3);
 //        myRef3.setValue("Target Volume" + Integer.parseInt(volInput3.getText().toString()));
 //        myRef3.setValue("Rate" + setRate3);
     }
