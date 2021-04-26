@@ -131,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 webView.loadUrl(url);
             }
         });
-        /*webView.loadUrl(url);*/
-
 
         //DROP-DOWN MENU FOR MODE
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.Mode_Items, R.layout.custom_spinner_font);
@@ -185,7 +183,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-
         // Auto increment for a long press
         btnIncrease1.setOnLongClickListener(new View.OnLongClickListener() {
                                                 public boolean onLongClick(View arg0) {
@@ -237,7 +234,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                                 }
                                             }
         );
-
 
         // When the button is released, while auto increment is happening, stop
         btnIncrease1.setOnTouchListener(new View.OnTouchListener() {
@@ -320,38 +316,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void increaseRate1() {
-        setRate1++;
+        setRate1 = setRate1 +10;
         progressNum1.setText(Integer.toString(setRate1) + " μL/min");
     }
 
     public void increaseRate2() {
-        setRate2++;
+        setRate2 = setRate2 +10;
         progressNum2.setText(Integer.toString(setRate2) + " μL/min");
     }
 
     public void increaseRate3() {
-        setRate3++;
+        setRate3 = setRate3 +10;
         progressNum3.setText(Integer.toString(setRate3) + " μL/min");
     }
 
 
     public void decreaseRate1() {
         if (setRate1 >= 1) {
-            setRate1--;
+            setRate1 = setRate1 - 10;
             progressNum1.setText(Integer.toString(setRate1) + " μL/min");
         }
     }
 
     public void decreaseRate() {
         if (setRate2 >= 1) {
-            setRate2--;
+            setRate2 = setRate2 - 10;
             progressNum2.setText(Integer.toString(setRate2) + " μL/min");
         }
     }
 
     public void decreaseRate3() {
         if (setRate3 >= 1) {
-            setRate3--;
+            setRate3 = setRate3 - 10;
             progressNum3.setText(Integer.toString(setRate3) + " μL/min");
         }
     }
@@ -391,8 +387,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         newMap.put("rate", setRate1);
         newMap.put("volume", Integer.parseInt(volInput1.getText().toString()));
         newMap.put("mode", setMode1.getSelectedItem().toString());*/
-        DatabaseReference myRef1 = database.getReference("Pump1");
+        final DatabaseReference myRef1 = database.getReference("Pump1");
         myRef1.setValue("1" + ":" + mode2Int_1 + "_" + Integer.parseInt(syr_vol1.getText().toString()) + ":" + Integer.parseInt(volInput1.getText().toString()) + "_" + setRate1);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                myRef1.setValue(null);
+            }
+        }, 10000);   //5 seconds
     }
 
     public void updatePump2() {
@@ -409,8 +411,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         newMap.put("rate", setRate2);
         newMap.put("volume", Integer.parseInt(volInput2.getText().toString()));
         newMap.put("mode", setMode2.getSelectedItem().toString());*/
-        DatabaseReference myRef2 = database.getReference("Pump2");
+        final DatabaseReference myRef2 = database.getReference("Pump2");
         myRef2.setValue("2" + ":" + mode2Int_2 + "_" + Integer.parseInt(syr_vol2.getText().toString()) + ":" + Integer.parseInt(volInput2.getText().toString()) + "_" + setRate2);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                myRef2.setValue(null);
+            }
+        }, 10000);   //5 seconds
     }
 
     public void updatePump3() {
@@ -427,9 +435,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        newMap.put("_", setRate3);
 //        newMap.put("_", Integer.parseInt(volInput3.getText().toString()));
 //        newMap.put("_", setMode3.getSelectedItem().toString());
-        DatabaseReference myRef3 = database.getReference("Pump3");
+        final DatabaseReference myRef3 = database.getReference("Pump3");
         myRef3.setValue("3" + ":" + mode2Int_3 + "_" + Integer.parseInt(syr_vol3.getText().toString()) + ":" + Integer.parseInt(volInput3.getText().toString()) + "_" + setRate3);
-//        myRef3.setValue("Target Volume" + Integer.parseInt(volInput3.getText().toString()));
-//        myRef3.setValue("Rate" + setRate3);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                myRef3.setValue(null);
+            }
+        }, 10000);   //5 seconds
     }
 }

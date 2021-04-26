@@ -8,9 +8,6 @@
                 android:centerColor="#c471ed"
                 android:endColor="#f64f59"
                 android:angle="0"/>
-            <!--<stroke
-                android:width="2dp"
-                android:color="#000000" />-->
             <corners
                 android:radius="60dp"/>
             <padding
