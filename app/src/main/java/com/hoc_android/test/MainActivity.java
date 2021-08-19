@@ -383,10 +383,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        /*Map<String, Object> newMap = new HashMap<>();
-        newMap.put("rate", setRate1);
-        newMap.put("volume", Integer.parseInt(volInput1.getText().toString()));
-        newMap.put("mode", setMode1.getSelectedItem().toString());*/
         final DatabaseReference myRef1 = database.getReference("Pump1");
         myRef1.setValue("1" + ":" + mode2Int_1 + "_" + Integer.parseInt(syr_vol1.getText().toString()) + ":" + Integer.parseInt(volInput1.getText().toString()) + "_" + setRate1);
         Handler handler = new Handler();
@@ -394,7 +390,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void run() {
                 myRef1.setValue(null);
             }
-        }, 10000);   //5 seconds
+        }, 10000);   //10 seconds
     }
 
     public void updatePump2() {
@@ -407,10 +403,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-       /* Map<String, Object> newMap = new HashMap<>();
-        newMap.put("rate", setRate2);
-        newMap.put("volume", Integer.parseInt(volInput2.getText().toString()));
-        newMap.put("mode", setMode2.getSelectedItem().toString());*/
         final DatabaseReference myRef2 = database.getReference("Pump2");
         myRef2.setValue("2" + ":" + mode2Int_2 + "_" + Integer.parseInt(syr_vol2.getText().toString()) + ":" + Integer.parseInt(volInput2.getText().toString()) + "_" + setRate2);
         Handler handler = new Handler();
@@ -418,7 +410,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void run() {
                 myRef2.setValue(null);
             }
-        }, 10000);   //5 seconds
+        }, 10000);   //10 seconds
     }
 
     public void updatePump3() {
@@ -431,10 +423,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        Map<String, Object> newMap = new HashMap<>();
-//        newMap.put("_", setRate3);
-//        newMap.put("_", Integer.parseInt(volInput3.getText().toString()));
-//        newMap.put("_", setMode3.getSelectedItem().toString());
         final DatabaseReference myRef3 = database.getReference("Pump3");
         myRef3.setValue("3" + ":" + mode2Int_3 + "_" + Integer.parseInt(syr_vol3.getText().toString()) + ":" + Integer.parseInt(volInput3.getText().toString()) + "_" + setRate3);
         Handler handler = new Handler();
@@ -442,6 +430,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void run() {
                 myRef3.setValue(null);
             }
-        }, 10000);   //5 seconds
+        }, 10000);   //10 seconds
     }
 }
